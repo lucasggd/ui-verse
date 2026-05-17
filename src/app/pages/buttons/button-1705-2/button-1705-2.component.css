@@ -1,0 +1,145 @@
+button {
+  --tongue-color: #e37777;
+  --tongue-dark-color: #b95e5e;
+  --primary-color: #d9d9d9;
+
+  position: relative;
+  cursor: pointer;
+}
+
+button .text {
+  display: block;
+  position: relative;
+  padding: 0.75rem 2rem;
+  font-family: 'Open Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  background-color: var(--primary-color);
+  border-radius: 16px;
+  z-index: 1;
+}
+
+button .ear {
+  position: absolute;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  width: 20px;
+  height: 40px;
+  box-shadow: 0px 0px 8px rgb(0, 0, 0, 0.4);
+  z-index: 2;
+}
+button .left-ear {
+  transform-origin: top right;
+  transform: rotateZ(20deg);
+  left: 2px;
+  top: 2px;
+  transition: all ease-in 300ms;
+}
+
+button:hover .left-ear {
+  left: -5px;
+  animation: left-ear-anim infinite 3000ms;
+}
+
+@keyframes left-ear-anim {
+  0% {
+    transform: rotateZ(20deg);
+  }
+  50% {
+    transform: rotateZ(40deg);
+  }
+  100% {
+    transform: rotateZ(20deg);
+  }
+}
+
+button .right-ear {
+  transform-origin: top left;
+  transform: rotateZ(-20deg);
+  right: 2px;
+  top: 2px;
+  transition: all ease-in 300ms;
+}
+
+button:hover .right-ear {
+  right: -5px;
+  animation: right-ear-anim infinite 3000ms;
+}
+
+@keyframes right-ear-anim {
+  0% {
+    transform: rotateZ(-20deg);
+  }
+  50% {
+    transform: rotateZ(-40deg);
+  }
+  100% {
+    transform: rotateZ(-20deg);
+  }
+}
+
+button .tongue {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  transition: all linear 200ms;
+}
+
+button:hover .tongue {
+  bottom: -20px;
+  animation: tongue-anim infinite 500ms 500ms;
+}
+
+@keyframes tongue-anim {
+  0% {
+    bottom: -20px;
+  }
+  50% {
+    bottom: -17px;
+  }
+  100% {
+    bottom: -20px;
+  }
+}
+
+button .tongue .middle {
+  bottom: 5px;
+  position: absolute;
+  display: inherit;
+  width: 15px;
+  height: 25px;
+  background-color: var(--tongue-color);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+button .tongue .top {
+  bottom: 0;
+  position: absolute;
+  display: inherit;
+  width: 15px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--tongue-color);
+  z-index: -1;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+button .tongue .inf {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  position: absolute;
+  display: inherit;
+  width: 2px;
+  height: 25px;
+  background-color: var(--tongue-dark-color);
+  z-index: 0;
+}
