@@ -60,4 +60,13 @@ describe('MainLayoutComponent', () => {
     fixture.detectChanges();
     expect(menuRef.classList).toContain('expanded');
   });
+
+  it('should redirect to github', () => {
+    const githubLinkComponent = fixture.debugElement.query(
+      By.css('[data-testid="nav--header"] > a'),
+    );
+    expect(githubLinkComponent.attributes['href']).toBe('https://github.com/lucasggd');
+  });
+
+  // I know that there are more tests to do...
 });
